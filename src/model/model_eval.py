@@ -23,7 +23,7 @@ def prepare_data(data:pd.DataFrame) -> tuple[pd.DataFrame, pd.Series]:
     
 def load_model(filepath:str):
     try:
-        with open("model.pkl","rb") as file:
+        with open(filepath,"rb") as file:
             model = pickle.load(file)
         return model
     except Exception as e:
@@ -63,8 +63,8 @@ def save_metrics(metrics:dict, filepath:str) ->None:
 
 def main():
     try:
-        metrics_filepath ="metrics.json"
-        model_path ="model.pkl"
+        metrics_filepath ="reports/metrics.json"
+        model_path ="models/model.pkl"
         processed_testdata_path =r"./data/processed/test_processed.csv"
 
         testdata_path = load_data(processed_testdata_path)
